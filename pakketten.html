@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pakketten — Van den Broek Friet & Zo</title>
+  <meta name="description" content="Bekijk onze pakketten voor frietbakken op locatie. Standaard, Oerpakket, Duitse Avond, School/Vereniging en Toppers. Vanaf €4,25 p.p.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: '#DC2626', 'primary-light': '#F87171', cta: '#CA8A04', 'cta-hover': '#A16207', bg: '#FEF2F2', dark: '#450A0A', 'dark-light': '#7F1D1D' },
+          fontFamily: { display: ['Righteous', 'sans-serif'], sans: ['Poppins', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes patternMove { 0% { background-position: 0 0; } 100% { background-position: 60px 60px; } }
+    .animated-pattern { background-image: radial-gradient(circle, rgba(220,38,38,0.08) 1px, transparent 1px); background-size: 30px 30px; animation: patternMove 8s linear infinite; }
+    @media (prefers-reduced-motion: reduce) { .animated-pattern { animation: none; } }
+    html { scroll-behavior: smooth; }
+    .pakket-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .pakket-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(220,38,38,0.12); }
+  </style>
+</head>
+<body class="bg-bg font-sans text-dark">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="index.html" class="font-display text-primary text-xl md:text-2xl cursor-pointer">Friet & Zo</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="pakketten.html" class="text-primary font-semibold cursor-pointer">Pakketten</a>
+        <a href="over-ons.html" class="text-dark hover:text-primary transition-colors duration-200 cursor-pointer font-medium">Over Ons</a>
+        <a href="contact.html" class="text-dark hover:text-primary transition-colors duration-200 cursor-pointer font-medium">Contact</a>
+        <a href="contact.html#offerte" class="bg-cta hover:bg-cta-hover text-white px-6 py-2.5 rounded-full font-semibold transition-colors duration-200 cursor-pointer min-h-[44px] flex items-center">Offerte Aanvragen</a>
+      </div>
+      <button id="hamburger" class="md:hidden flex flex-col gap-1.5 cursor-pointer p-2 min-w-[44px] min-h-[44px] items-center justify-center" aria-label="Menu openen">
+        <span class="w-6 h-0.5 bg-dark"></span><span class="w-6 h-0.5 bg-dark"></span><span class="w-6 h-0.5 bg-dark"></span>
+      </button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+      <div class="px-4 py-4 flex flex-col gap-4">
+        <a href="pakketten.html" class="text-primary font-semibold text-lg py-2 cursor-pointer">Pakketten</a>
+        <a href="over-ons.html" class="text-dark hover:text-primary text-lg py-2 cursor-pointer">Over Ons</a>
+        <a href="contact.html" class="text-dark hover:text-primary text-lg py-2 cursor-pointer">Contact</a>
+        <a href="contact.html#offerte" class="bg-cta text-white px-6 py-3 rounded-full font-semibold text-center cursor-pointer">Offerte Aanvragen</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <section class="pt-28 pb-16 bg-primary animated-pattern text-center">
+    <h1 class="font-display text-4xl md:text-6xl text-white mb-4">Onze Pakketten</h1>
+    <p class="text-white/80 text-lg max-w-2xl mx-auto px-4">Kies het pakket dat past bij jouw feest. Wij komen naar jou toe met de frietwagen!</p>
+  </section>
+
+  <!-- Standaardpakket -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="pakket-card bg-white rounded-3xl overflow-hidden shadow-xl">
+        <div class="bg-primary p-8">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h2 class="font-display text-3xl md:text-4xl text-white">Standaardpakket</h2>
+              <p class="text-white/80 mt-2 text-lg">Het populairste pakket — onbeperkt genieten!</p>
+            </div>
+            <div class="text-right">
+              <p class="font-display text-4xl text-white">€8,00</p>
+              <p class="text-white/70">per persoon</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-8 md:p-10">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-semibold text-lg text-dark mb-4">Wat zit erin?</h3>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Onbeperkt friet</li>
+                <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Snacks: frikadel, kroket, kaassoufflé, hamburger</li>
+                <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Broodjes</li>
+                <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Sauzen: frietsaus, curry, ketchup, mosterd en uitjes</li>
+                <li class="flex items-start gap-3"><svg class="w-5 h-5 text-dark-light mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg> Satésaus tegen meerprijs</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg text-dark mb-4">Prijzen</h3>
+              <div class="space-y-3 text-dark">
+                <div class="flex justify-between items-center py-2 border-b border-bg">
+                  <span>Tot 75 personen</span><span class="font-semibold">€8,00 p.p.</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-bg">
+                  <span>75 - 100 personen</span><span class="font-semibold">€7,50 p.p.</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-bg">
+                  <span>Vanaf 100 personen</span><span class="font-semibold">€7,00 p.p.</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-bg">
+                  <span>Kinderen t/m 8 jaar</span><span class="font-semibold">€5,50 p.p.</span>
+                </div>
+                <p class="text-sm text-dark-light mt-2">Min. starttarief €325. 1-2 uur bakken. Reiskosten afhankelijk van afstand.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Oerpakket -->
+  <section class="py-16 md:py-24 animated-pattern">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="pakket-card bg-white rounded-3xl overflow-hidden shadow-xl">
+        <div class="bg-dark p-8">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h2 class="font-display text-3xl md:text-4xl text-white">Oerpakket</h2>
+              <p class="text-white/80 mt-2 text-lg">Van den Broek Friet & Zo gaat "Wild"</p>
+            </div>
+            <div class="text-right">
+              <p class="font-display text-4xl text-white">€14,00</p>
+              <p class="text-white/70">per persoon</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-8 md:p-10">
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Alles uit het standaardpakket</li>
+            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> <strong>Broodje Oerburger</strong> — een ambachtelijke hamburger (één per persoon)</li>
+          </ul>
+          <p class="text-sm text-dark-light mt-6">Min. starttarief €325</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Duitse Avond -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="pakket-card bg-white rounded-3xl overflow-hidden shadow-xl">
+        <div class="bg-cta p-8">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h2 class="font-display text-3xl md:text-4xl text-white">Duitse Avond</h2>
+              <p class="text-white/80 mt-2 text-lg">Uitermate geschikt voor een gezellige tiroleravond, oktoberfest of zomaar omdat het lekker is!</p>
+            </div>
+            <div class="text-right">
+              <p class="font-display text-4xl text-white">€14,00</p>
+              <p class="text-white/70">per persoon</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-8 md:p-10">
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Alles uit het standaardpakket</li>
+            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> <strong>Varkenssnitsel</strong> met zigeunersaus (één per persoon)</li>
+            <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> <strong>Braad- of curryworst</strong> (één per persoon)</li>
+          </ul>
+          <p class="text-sm text-dark-light mt-6">Min. starttarief €325</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- School/Vereniging -->
+  <section class="py-16 md:py-24 animated-pattern">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="pakket-card bg-white rounded-3xl overflow-hidden shadow-xl">
+        <div class="bg-primary-light p-8">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h2 class="font-display text-3xl md:text-4xl text-white">School & Vereniging</h2>
+              <p class="text-white/90 mt-2 text-lg">Speciale prijzen voor scholen en verenigingen — vanaf 70 personen</p>
+            </div>
+            <div class="text-right">
+              <p class="font-display text-4xl text-white">€4,25</p>
+              <p class="text-white/70">vanaf p.p.</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-8 md:p-10">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-semibold text-lg text-dark mb-4">Wat zit erin?</h3>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 1 bakje friet + 1 snack + 1 sausje</li>
+                <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Snacks: rundvleeskroket, frikadel, kaassoufflé</li>
+                <li class="flex items-start gap-3"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Sauzen: frietsaus, curry, ketchup, mosterd</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg text-dark mb-4">Prijzen</h3>
+              <div class="space-y-3 text-dark">
+                <div class="flex justify-between items-center py-2 border-b border-bg"><span>70 - 100 pers</span><span class="font-semibold">€5,00 p.p.</span></div>
+                <div class="flex justify-between items-center py-2 border-b border-bg"><span>101 - 150 pers</span><span class="font-semibold">€4,75 p.p.</span></div>
+                <div class="flex justify-between items-center py-2 border-b border-bg"><span>151 - 200 pers</span><span class="font-semibold">€4,50 p.p.</span></div>
+                <div class="flex justify-between items-center py-2 border-b border-bg"><span>201+ personen</span><span class="font-semibold">€4,25 p.p.</span></div>
+              </div>
+              <p class="text-sm text-dark-light mt-4">Reiskosten afhankelijk van afstand.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toppers -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 lg:px-8">
+      <h2 class="font-display text-3xl md:text-4xl text-dark text-center mb-4">Toppers — Uitbreidingen</h2>
+      <p class="text-dark-light text-center text-lg mb-12">Maak je standaardpakket nog lekkerder met deze aanraders!</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="pakket-card bg-white rounded-2xl p-8 shadow-lg text-center">
+          <p class="font-display text-5xl text-primary mb-2">1</p>
+          <h3 class="font-semibold text-xl mb-2">Kipsaté</h3>
+          <p class="text-dark-light mb-4">Huisgemaakte kipsaté met satésaus (2 stokjes p.p.). Varkenshaassaté ook mogelijk.</p>
+          <p class="font-display text-2xl text-primary">€5,00</p>
+        </div>
+        <div class="pakket-card bg-white rounded-2xl p-8 shadow-lg text-center">
+          <p class="font-display text-5xl text-primary mb-2">2</p>
+          <h3 class="font-semibold text-xl mb-2">Gyrosreepjes</h3>
+          <p class="text-dark-light mb-4">Met knoflooksaus. Per portie.</p>
+          <p class="font-display text-2xl text-primary">€5,00</p>
+        </div>
+        <div class="pakket-card bg-white rounded-2xl p-8 shadow-lg text-center">
+          <p class="font-display text-5xl text-primary mb-2">3</p>
+          <h3 class="font-semibold text-xl mb-2">Shoarmareepjes</h3>
+          <p class="text-dark-light mb-4">Met knoflooksaus. Per portie.</p>
+          <p class="font-display text-2xl text-primary">€5,00</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verhuur -->
+  <section id="verhuur" class="py-16 md:py-24 bg-dark text-white">
+    <div class="max-w-3xl mx-auto px-4 md:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl md:text-4xl mb-6">Frietaanhanger Huren</h2>
+      <p class="text-white/80 text-lg mb-8">Liever zelf bakken? Huur onze frietwagen/aanhanger zonder personeel. Schoon retour graag! Voor meerdere dagen vragen wij een passende offerte.</p>
+      <a href="contact.html#offerte" class="inline-block bg-cta hover:bg-cta-hover text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-200 cursor-pointer min-h-[44px]">Offerte Aanvragen</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark border-t border-white/10 py-12">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 grid md:grid-cols-3 gap-12 text-white/70">
+      <div>
+        <p class="font-display text-2xl text-white mb-4">Friet & Zo</p>
+        <p>Van den Broek Friet & Zo</p>
+        <p>De Hammen 13</p>
+        <p>5371 MK Ravenstein</p>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-4">Diensten</p>
+        <a href="pakketten.html" class="block hover:text-white transition-colors duration-200 cursor-pointer mb-2">Pakketten</a>
+        <a href="pakketten.html#verhuur" class="block hover:text-white transition-colors duration-200 cursor-pointer mb-2">Verhuur Frietaanhanger</a>
+        <a href="contact.html#offerte" class="block hover:text-white transition-colors duration-200 cursor-pointer mb-2">Offerte Aanvragen</a>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-4">Contact</p>
+        <a href="tel:0622018752" class="block hover:text-white transition-colors duration-200 cursor-pointer mb-2">06-22018752</a>
+        <a href="tel:0486412246" class="block hover:text-white transition-colors duration-200 cursor-pointer mb-2">0486-412246</a>
+        <a href="mailto:info@vandenbroekfrietenzo.nl" class="block hover:text-white transition-colors duration-200 cursor-pointer mb-2">info@vandenbroekfrietenzo.nl</a>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 mt-12 pt-8 border-t border-white/10 text-center text-white/40 text-sm">
+      <p>© 2026 Van den Broek Friet & Zo</p>
+      <p class="mt-2">Gebouwd door <a href="https://www.code-lieshout.nl" class="hover:text-white transition-colors duration-200 cursor-pointer underline">Code Lieshout</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Van den Broek Friet & Zo — Frietbakken op Locatie | Ravenstein</title>
+  <meta name="description" content="Van den Broek Friet & Zo: frietbakken op locatie in Ravenstein en omgeving. Al 12,5+ jaar de lekkerste friet op jouw feest. ⭐ 5.0 Google rating.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#DC2626',
+            'primary-light': '#F87171',
+            cta: '#CA8A04',
+            'cta-hover': '#A16207',
+            bg: '#FEF2F2',
+            dark: '#450A0A',
+            'dark-light': '#7F1D1D',
+          },
+          fontFamily: {
+            display: ['Righteous', 'sans-serif'],
+            sans: ['Poppins', 'sans-serif'],
+          },
+          gap: { 'block': '48px' },
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes patternMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 60px 60px; }
+    }
+    .animated-pattern {
+      background-image: radial-gradient(circle, rgba(220,38,38,0.08) 1px, transparent 1px);
+      background-size: 30px 30px;
+      animation: patternMove 8s linear infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .animated-pattern { animation: none; }
+    }
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(220,38,38,0.92) 0%, rgba(69,10,10,0.88) 100%);
+    }
+    html { scroll-behavior: smooth; }
+    .pakket-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .pakket-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(220,38,38,0.15);
+    }
+    .gallery-item {
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+    /* Lightbox */
+    .lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:100; align-items:center; justify-content:center; cursor:pointer; }
+    .lightbox.active { display:flex; }
+    .lightbox img { max-width:90vw; max-height:90vh; border-radius:8px; }
+  </style>
+</head>
+<body class="bg-bg font-sans text-dark">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="index.html" class="font-display text-primary text-xl md:text-2xl cursor-pointer">Friet & Zo</a>
+      <!-- Desktop -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="pakketten.html" class="text-dark hover:text-primary transition-colors duration-200 cursor-pointer font-medium">Pakketten</a>
+        <a href="over-ons.html" class="text-dark hover:text-primary transition-colors duration-200 cursor-pointer font-medium">Over Ons</a>
+        <a href="contact.html" class="text-dark hover:text-primary transition-colors duration-200 cursor-pointer font-medium">Contact</a>
+        <a href="contact.html#offerte" class="bg-cta hover:bg-cta-hover text-white px-6 py-2.5 rounded-full font-semibold transition-colors duration-200 cursor-pointer min-h-[44px] flex items-center">Offerte Aanvragen</a>
+      </div>
+      <!-- Hamburger -->
+      <button id="hamburger" class="md:hidden flex flex-col gap-1.5 cursor-pointer p-2 min-w-[44px] min-h-[44px] items-center justify-center" aria-label="Menu openen">
+        <span class="w-6 h-0.5 bg-dark transition-all duration-200"></span>
+        <span class="w-6 h-0.5 bg-dark transition-all duration-200"></span>
+        <span class="w-6 h-0.5 bg-dark transition-all duration-200"></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+      <div class="px-4 py-4 flex flex-col gap-4">
+        <a href="pakketten.html" class="text-dark hover:text-primary transition-colors duration-200 cursor-pointer font-medium text-lg py-2">Pakketten</a>
+        <a href="over-ons.html" class="text-dark hover:text-primary transition-colors duration-200 cursor-pointer font-medium text-lg py-2">Over Ons</a>
+        <a href="contact.html" class="text-dark hover:text-primary transition-colors duration-200 cursor-pointer font-medium text-lg py-2">Contact</a>
+        <a href="contact.html#offerte" class="bg-cta hover:bg-cta-hover text-white px-6 py-3 rounded-full font-semibold text-center transition-colors duration-200 cursor-pointer">Offerte Aanvragen</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-16">
+    <div class="absolute inset-0">
+      <img src="images/google4.jpg" alt="Van den Broek Friet & Zo frietwagen op locatie" class="w-full h-full object-cover" loading="eager">
+      <div class="hero-overlay absolute inset-0"></div>
+    </div>
+    <div class="relative z-10 text-center px-4 md:px-6 max-w-4xl">
+      <h1 class="font-display text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight">
+        De Lekkerste Friet<br>Op Jouw Feest!
+      </h1>
+      <p class="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
+        Al meer dan 12,5 jaar bakken wij de lekkerste friet en snacks op locatie. Van buurtfeest tot bruiloft — wij komen naar jou toe in Ravenstein en omgeving.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="pakketten.html" class="bg-cta hover:bg-cta-hover text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-200 cursor-pointer min-h-[44px]">Bekijk Pakketten</a>
+        <a href="contact.html#offerte" class="bg-white/10 hover:bg-white/20 text-white border-2 border-white/40 px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-200 cursor-pointer backdrop-blur-sm min-h-[44px]">Offerte Aanvragen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="bg-primary animated-pattern py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-block text-center">
+      <div>
+        <p class="font-display text-4xl md:text-5xl text-white">12,5+</p>
+        <p class="text-white/80 mt-2 font-medium">Jaar Ervaring</p>
+      </div>
+      <div>
+        <p class="font-display text-4xl md:text-5xl text-white">⭐ 5.0</p>
+        <p class="text-white/80 mt-2 font-medium">Google Rating</p>
+      </div>
+      <div>
+        <p class="font-display text-4xl md:text-5xl text-white">1000+</p>
+        <p class="text-white/80 mt-2 font-medium">Feesten Verzorgd</p>
+      </div>
+      <div>
+        <p class="font-display text-4xl md:text-5xl text-white">5</p>
+        <p class="text-white/80 mt-2 font-medium">Unieke Pakketten</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pakketten Preview -->
+  <section class="py-20 md:py-28 animated-pattern">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-5xl text-dark mb-4">Onze Pakketten</h2>
+        <p class="text-dark-light text-lg max-w-2xl mx-auto">Van een gezellig buurtfeest tot een groots bedrijfsevenement — wij hebben het perfecte pakket.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-block">
+        <!-- Standaard -->
+        <div class="pakket-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+          <div class="bg-primary p-6">
+            <h3 class="font-display text-2xl text-white">Standaardpakket</h3>
+            <p class="text-white/80 mt-1">Het populairste pakket</p>
+          </div>
+          <div class="p-6">
+            <p class="font-display text-3xl text-primary mb-1">€8,00 <span class="text-base font-sans text-dark-light">p.p.</span></p>
+            <p class="text-sm text-dark-light mb-4">Min. starttarief €325</p>
+            <ul class="space-y-2 text-dark">
+              <li class="flex items-start gap-2"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Onbeperkt friet</li>
+              <li class="flex items-start gap-2"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Frikadel, kroket, kaassoufflé, hamburger</li>
+              <li class="flex items-start gap-2"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Broodjes + 5 sauzen</li>
+            </ul>
+            <a href="pakketten.html" class="mt-6 inline-block bg-primary hover:bg-dark text-white px-6 py-3 rounded-full font-semibold transition-colors duration-200 cursor-pointer min-h-[44px]">Meer Info</a>
+          </div>
+        </div>
+        <!-- Oerpakket -->
+        <div class="pakket-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+          <div class="bg-dark p-6">
+            <h3 class="font-display text-2xl text-white">Oerpakket</h3>
+            <p class="text-white/80 mt-1">Wild & ambachtelijk</p>
+          </div>
+          <div class="p-6">
+            <p class="font-display text-3xl text-primary mb-1">€14,00 <span class="text-base font-sans text-dark-light">p.p.</span></p>
+            <p class="text-sm text-dark-light mb-4">Min. starttarief €325</p>
+            <ul class="space-y-2 text-dark">
+              <li class="flex items-start gap-2"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Alles uit standaardpakket</li>
+              <li class="flex items-start gap-2"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Broodje ambachtelijke oerburger</li>
+            </ul>
+            <a href="pakketten.html" class="mt-6 inline-block bg-primary hover:bg-dark text-white px-6 py-3 rounded-full font-semibold transition-colors duration-200 cursor-pointer min-h-[44px]">Meer Info</a>
+          </div>
+        </div>
+        <!-- Duitse Avond -->
+        <div class="pakket-card bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+          <div class="bg-cta p-6">
+            <h3 class="font-display text-2xl text-white">Duitse Avond</h3>
+            <p class="text-white/80 mt-1">Gezellig & lekker</p>
+          </div>
+          <div class="p-6">
+            <p class="font-display text-3xl text-primary mb-1">€14,00 <span class="text-base font-sans text-dark-light">p.p.</span></p>
+            <p class="text-sm text-dark-light mb-4">Min. starttarief €325</p>
+            <ul class="space-y-2 text-dark">
+              <li class="flex items-start gap-2"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Alles uit standaardpakket</li>
+              <li class="flex items-start gap-2"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Varkenssnitsel + zigeunersaus</li>
+              <li class="flex items-start gap-2"><svg class="w-5 h-5 text-cta mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Braad- of curryworst</li>
+            </ul>
+            <a href="pakketten.html" class="mt-6 inline-block bg-primary hover:bg-dark text-white px-6 py-3 rounded-full font-semibold transition-colors duration-200 cursor-pointer min-h-[44px]">Meer Info</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <a href="pakketten.html" class="text-primary hover:text-dark font-semibold text-lg transition-colors duration-200 cursor-pointer underline underline-offset-4">Alle pakketten bekijken →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-5xl text-dark mb-4">Wat Onze Klanten Zeggen</h2>
+        <p class="text-dark-light text-lg">⭐ 5.0 op Google — 16 reviews</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-bg rounded-2xl p-8 shadow-sm">
+          <div class="flex gap-1 mb-4 text-cta">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-dark mb-4 italic">"Vandaag deze frietwagen bij ons feestje gehad. Heerlijke friet en snacks."</p>
+          <p class="font-semibold text-dark">— Heidi Visser</p>
+        </div>
+        <div class="bg-bg rounded-2xl p-8 shadow-sm">
+          <div class="flex gap-1 mb-4 text-cta">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-dark mb-4 italic">"Wat een succes was de frietwagen. Heerlijke friet en snacks. En zeer vriendelijk!"</p>
+          <p class="font-semibold text-dark">— Riekie Koninkx</p>
+        </div>
+        <div class="bg-bg rounded-2xl p-8 shadow-sm">
+          <div class="flex gap-1 mb-4 text-cta">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-dark mb-4 italic">"Heerlijk gebakken friet en overheerlijke bamischijven 👍🏻"</p>
+          <p class="font-semibold text-dark">— Jolanda Wijnakker</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="py-20 md:py-28 animated-pattern">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <h2 class="font-display text-3xl md:text-5xl text-dark text-center mb-16">In Actie</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+        <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer aspect-square" onclick="openLightbox(this)">
+          <img src="images/google4.jpg" alt="Kinderen bij frietwagen" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer aspect-square" onclick="openLightbox(this)">
+          <img src="images/evenement.jpg" alt="Frietwagen op locatie evenement" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer aspect-square" onclick="openLightbox(this)">
+          <img src="images/google3.jpg" alt="Krantenbericht frietwagen" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer aspect-square" onclick="openLightbox(this)">
+          <img src="images/google1.jpg" alt="Van den Broek Friet & Zo" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer aspect-square" onclick="openLightbox(this)">
+          <img src="images/google2.jpg" alt="Friet bakken op locatie" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="gallery-item rounded-2xl overflow-hidden shadow-lg cursor-pointer aspect-square" onclick="openLightbox(this)">
+          <img src="images/eigenaren.jpg" alt="De eigenaren van Van den Broek Friet & Zo" class="w-full h-full object-cover" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-28 bg-dark text-white text-center">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
+      <h2 class="font-display text-3xl md:text-5xl mb-6">Friet Op Jouw Feest?</h2>
+      <p class="text-white/80 text-lg mb-10">Vraag vrijblijvend een offerte aan. Wij denken graag met je mee over het perfecte pakket voor jouw gelegenheid.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html#offerte" class="bg-cta hover:bg-cta-hover text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-200 cursor-pointer min-h-[44px]">Offerte Aanvragen</a>
+        <a href="tel:0622018752" class="bg-white/10 hover:bg-white/20 border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-200 cursor-pointer min-h-[44px]">Bel 06-22018752</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark border-t border-white/10 py-12">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 grid md:grid-cols-3 gap-12 text-white/70">
+      <div>
+        <p class="font-display text-2xl text-white mb-4">Friet & Zo</p>
+        <p>Van den Broek Friet & Zo</p>
+        <p>De Hammen 13</p>
+        <p>5371 MK Ravenstein</p>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-4">Diensten</p>
+        <a href="pakketten.html" class="block hover:text-white transition-colors duration-200 cursor-pointer mb-2">Pakketten</a>
+        <a href="pakketten.html#verhuur" class="block hover:text-white transition-colors duration-200 cursor-pointer mb-2">Verhuur Frietaanhanger</a>
+        <a href="contact.html#offerte" class="block hover:text-white transition-colors duration-200 cursor-pointer mb-2">Offerte Aanvragen</a>
+      </div>
+      <div>
+        <p class="font-semibold text-white mb-4">Contact</p>
+        <a href="tel:0622018752" class="block hover:text-white transition-colors duration-200 cursor-pointer mb-2">06-22018752</a>
+        <a href="tel:0486412246" class="block hover:text-white transition-colors duration-200 cursor-pointer mb-2">0486-412246</a>
+        <a href="mailto:info@vandenbroekfrietenzo.nl" class="block hover:text-white transition-colors duration-200 cursor-pointer mb-2">info@vandenbroekfrietenzo.nl</a>
+        <a href="https://nl-nl.facebook.com/pages/category/Food-Truck/Van-den-Broek-Friet-Zo-Ravenstein-555633734457126/" target="_blank" rel="noopener" class="inline-block hover:text-white transition-colors duration-200 cursor-pointer mt-2">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 mt-12 pt-8 border-t border-white/10 text-center text-white/40 text-sm">
+      <p>© 2026 Van den Broek Friet & Zo — Alle dagen geopend van 09:00 - 21:00</p>
+      <p class="mt-2">Gebouwd door <a href="https://www.code-lieshout.nl" class="hover:text-white transition-colors duration-200 cursor-pointer underline">Code Lieshout</a></p>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightboxImg" src="" alt="Foto vergroting">
+  </div>
+
+  <script>
+    // Hamburger
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+    // Lightbox
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      document.getElementById('lightboxImg').src = img.src;
+      document.getElementById('lightbox').classList.add('active');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+</body>
+</html>
